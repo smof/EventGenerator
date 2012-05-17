@@ -1,4 +1,4 @@
-#smoffatt@securonix.com
+#Simon Moffatt May 2012
 #creates event files in different formats
 #requires an ID file and Transactions file to be presented
 
@@ -12,7 +12,7 @@ TRANSACTIONS="transactions.csv" #one transaction per line
 RESOURCE="PIX" #name of resource
 START_DATE="12/04/01" #YY/MM/DD
 END_DATE="12/04/30" #YY/MM/D
-TYPE="csv" #syslog tab name_value
+TYPE="csv" #options include: syslog, tab, name_value 
 #non-configurable
 OUTPUT_FILE="#{RESOURCE}_generated_events_#{TYPE}.dat"
 CONSTRUCTED_EVENTS=[] #where the final events are pumped before output
@@ -56,6 +56,7 @@ end
 #creates a random time.  returns HH:MM:ss
 def get_time
   
+      #this is a bit nasty
      "#{Kernel.rand(24)}:#{Kernel.rand(60)}:#{Kernel.rand(60)}"
   
 end
