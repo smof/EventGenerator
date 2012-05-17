@@ -1,0 +1,19 @@
+A basic log generation simulator used for testing of log consumption devices.
+
+Can be used to replicate any event log that contains, IP address, time, date, userid and transaction.
+
+Eg. application access, firewalls, network devices, databases, directories and so on.
+
+Provide a list of unique userid's and IP addresses, along with a file containining the resource transactions.
+
+The application will iterate over the data files n-times over the start and end dates.
+
+Output can then be pre-formatted into csv, tab, name-value pairs and so on.
+
+Transactions should be randomized over the entire date range.
+
+Released as-if no warranty.
+
+
+
+Simon Moffatt May 2012
