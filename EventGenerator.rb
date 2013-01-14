@@ -9,12 +9,12 @@ require 'csv'
 
 #Globals and constants#######################################################################
 IDENTITIES="ids.csv" #one user id and their corresponding ip address eg "smof,10.1.3.3"
-EVENTS_PER_USER=10 #events spread across the entire date range randomly
+EVENTS_PER_USER=500 #events spread across the entire date range randomly
 TRANSACTIONS="transactions.csv" #one transaction per line
-RESOURCE="PIX" #name of resource
-START_DATE="2012/04/01" #YY/MM/DD
-END_DATE="2012/04/07" #YY/MM/DD
-TYPE="name_value" #options include: syslog, tab, name_value 
+RESOURCE="FILE_SYS" #name of resource
+START_DATE="2012/05/01" #YY/MM/DD
+END_DATE="2012/05/30" #YY/MM/DD
+TYPE="csv" #options include: csv, tab, name_value 
 #non-configurable
 OUTPUT_FILE="#{RESOURCE}_generated_events_#{TYPE}.dat"
 CONSTRUCTED_EVENTS=[] #where the final events are pumped before output
@@ -46,7 +46,7 @@ def read_transactions
   @transactions =[]
   CSV.foreach(TRANSACTIONS) do |row|
     
-    @transactions << row #push transaction pool into an array
+    @transactions << row[0] #push transaction pool into an array
     
   end
 
